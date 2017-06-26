@@ -1,4 +1,5 @@
 package com;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public class Test {
 		JFrame jf = new JFrame("Cell Combine Table");
 		jf.getContentPane().setLayout(new GridLayout(1, 1, 0, 0));
 		JTable cTable = getTable1();
+		cTable.getTableHeader().setPreferredSize(new Dimension(1,60));              //增加表头高度设定
 
 		jf.getContentPane().add(new JScrollPane(cTable));
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
