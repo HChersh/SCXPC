@@ -1,7 +1,10 @@
 package com;
 
 import javax.swing.*;
+
 import java.awt.*;
+
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
@@ -17,6 +20,9 @@ public class CombineTable extends JTable {
 	public CombineTable(CombineData combineData, TableModel tableModel) {
 		super(tableModel);
 		this.combineData = combineData;
+		DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();    //设置table表体内容居中
+		tcr.setHorizontalAlignment(SwingConstants.CENTER);// 
+		this.setDefaultRenderer(Object.class,tcr);
 
 		for (Integer column : combineData.combineColumns) {
 			TableColumn tableColumn = super.columnModel.getColumn(column);

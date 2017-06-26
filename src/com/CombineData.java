@@ -71,13 +71,14 @@ public class CombineData {
 		for (Integer integer : combineColumns) {
 			HashMap<Integer, Integer> rowPos = new HashMap<Integer, Integer>();
 			HashMap<Integer, Integer> rowCount = new HashMap<Integer, Integer>();
+			rowCount.put(0, 0);
 
 			String pre = "";
 			int count = 0;
 			int start = 0;
 			for (int i = 0; i < datas.length; i++) {
 				String[] data = datas[i];
-				if (pre.equals(data[integer])) {               //integer为需要合并的列
+				if (pre.equals(data[integer]) && data[0].equals(datas[start][0])) {    //如果与上一行数据相等且第一列的生产订单号也相等
 					count++;
 				} else {
 					rowCount.put(start, count);
@@ -98,7 +99,7 @@ public class CombineData {
 	 *   * 返回table中row行column列单元格所跨行数  
 	 */
 	public int span(int row, int column) {
-		int index = combineColumns.lastIndexOf(column);
+		int index = combineColumns.lastIndexOf(column);           
 		if (index != -1) {
 			return rowCounts.get(index).get(rowPoss.get(index).get(row));
 		} else {
