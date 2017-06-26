@@ -20,7 +20,7 @@ public class CombineTable extends JTable {
 
 		for (Integer column : combineData.combineColumns) {
 			TableColumn tableColumn = super.columnModel.getColumn(column);
-			tableColumn.setCellRenderer(new CombineColumnRender());
+//			tableColumn.setCellRenderer(new CombineColumnRender());
 		}
 		super.setUI(new CombineTableUI());
 	}
@@ -30,7 +30,7 @@ public class CombineTable extends JTable {
 
 		for (Integer column : combineData.combineColumns) {
 			TableColumn tableColumn = super.columnModel.getColumn(column);
-			tableColumn.setCellRenderer(new CombineColumnRender());
+//			tableColumn.setCellRenderer(new CombineColumnRender());
 		}
 	}
 

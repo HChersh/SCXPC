@@ -77,7 +77,7 @@ public class CombineData {
 			int start = 0;
 			for (int i = 0; i < datas.length; i++) {
 				String[] data = datas[i];
-				if (pre.equals(data[integer])) {
+				if (pre.equals(data[integer])) {               //integer为需要合并的列
 					count++;
 				} else {
 					rowCount.put(start, count);

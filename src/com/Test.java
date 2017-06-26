@@ -16,6 +16,7 @@ public class Test {
 		JFrame jf = new JFrame("Cell Combine Table");
 		jf.getContentPane().setLayout(new GridLayout(1, 1, 0, 0));
 		JTable cTable = getTable1();
+		
 		cTable.getTableHeader().setPreferredSize(new Dimension(1,60));              //增加表头高度设定
 
 		jf.getContentPane().add(new JScrollPane(cTable));
@@ -23,7 +24,7 @@ public class Test {
 		jf.setSize(1000, 500);
 		jf.setVisible(true);
 		
-//		JTable cTable2 = getTable1();
+//		JTable cTable2 = getTable2();
 //
 //		jf.getContentPane().add(new JScrollPane(cTable2));
 //		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,14 +32,14 @@ public class Test {
 //		jf.setVisible(true);
 	}
 
-	private static CombineTable getTable1() {
-		String[][] datas = new String[9][6];
+	private static CombineTable getTable1() {                
+		String[][] datas = new String[9][6];                 //这里确定多少个订单，多少个工序，以及多少个可用机台，也就是我们的行数
 		for (int i = 0; i < datas.length; i++) {             //i表示某一行
 			String[] data = datas[i];
 			for (int j = 0; j < data.length; j++) {
 				data[j] = "";
 			}
-			data[0] = String.valueOf((int) (i / 3));         //之后通过data[0]的值对这一列进行合并了
+			data[0] = String.valueOf((int) (i / 3));         //列通过数值相同进行合并，到时自动合并
 			data[1] = String.valueOf((int) (i / 3));
 		}
 
@@ -51,7 +52,7 @@ public class Test {
 		CombineTable cTable = new CombineTable(m, tm);
 
 		TableColumn column = cTable.getColumnModel().getColumn(0);
-		column.setCellRenderer(new CombineColumnRender());
+//		column.setCellRenderer(new CombineColumnRender());
 //		column.setWidth(50);                                             //去掉第一列宽度设定
 //		column.setMaxWidth(50);
 //		column.setMinWidth(50);
@@ -60,7 +61,7 @@ public class Test {
 	}
 
 	private static CombineTable getTable2() {
-		String[][] datas = new String[9][6];
+		String[][] datas = new String[9][6];             
 		for (int i = 0; i < datas.length; i++) {
 			String[] data = datas[i];
 			for (int j = 0; j < data.length; j++) {
@@ -78,7 +79,7 @@ public class Test {
 		TableColumnModel columnModel = cTable.getColumnModel();
 		for (Integer integer : m.combineColumns) {
 			TableColumn column = columnModel.getColumn(integer);
-			column.setCellRenderer(new CombineColumnRender());
+//			column.setCellRenderer(new CombineColumnRender());
 			column.setWidth(50);
 			column.setMaxWidth(50);
 			column.setMinWidth(50);
