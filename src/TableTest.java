@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -94,20 +95,14 @@ public class TableTest {
         GroupableTableHeader tableHeader = new GroupableTableHeader();
         table2.setTableHeader(tableHeader);
         
-        DefaultGroup group = new DefaultGroup();
-        group.setRow(0);
-        group.setRowSpan(2);      //设定占用两行
-        group.setColumn(0);
-        group.setHeaderValue("生产订单");
-        tableHeader.addGroup(group);
         
-        for(int i = 1 ;i < 15 ; i++){
-        	group = new DefaultGroup();
-        	group.setRow(0);
-        	group.setColumn(i);
-        	group.setColumnSpan(1);
-        	group.setHeaderValue(i+"");
-        	tableHeader.addGroup(group);
+        for(int i = 0 ;i < 15 ; i++){
+        	DefaultGroup group = new DefaultGroup();
+            group.setRow(0);
+            group.setRowSpan(2);      //设定占用两行
+            group.setColumn(i);
+            group.setHeaderValue("生产订单");
+            tableHeader.addGroup(group);
         }
         
         initHeader(table2);
