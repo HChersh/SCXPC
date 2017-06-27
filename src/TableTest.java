@@ -15,9 +15,6 @@ import com.CombineData;
 import com.CombineTable;
 import com.cherish.header.DefaultGroup;
 import com.cherish.header.GroupableTableHeader;
-import javax.swing.JLabel;
-import javax.swing.JSplitPane;
-import javax.swing.JButton;
 
 public class TableTest {
 
@@ -66,7 +63,8 @@ public class TableTest {
 		
 		JPanel panel3 = new JPanel();    //下左
 		panel2.add(panel3);
-		JPanel panel4 = new JPanel();    //下右用来存放条形图
+		JPanel panel4 = new BarChartGradientFrame("demo").createDemoPanel();    //下右用来存放条形图
+		panel4.setPreferredSize(new Dimension(100,100));
 		panel2.add(panel4);
 		
 		
