@@ -60,57 +60,85 @@ public class TableTest {
 
 		String[][] cellData = {
 				{"M00001", "P001", "红色", "1000", "2月5日", "还原工段", "1000", "0",
-						"1#", "10", "24", "240", "24", "" ,""},
+						"1#", "10", "24", "240", "8", "8","8"},
 				{"M00001", "P001", "红色", "1000", "2月5日", "还原工段", "1000", "0",
-							"1#", "10", "24", "240", "24", "" ,""},
+							"1#", "10", "24", "240", "8", "8","8"},
 				{"M00001", "P001", "红色", "1000", "2月5日", "还原工段", "1000", "0",
-								"1#", "10", "24", "240", "24", "",""  },
+								"1#", "10", "24", "240", "8", "8","8" },
 				{"M00002", "P002", "黄色", "1000", "2月6日", "还原工段", "2000", "2",
-						"1#", "10", "24", "240", "24", "" ,""},
+						"1#", "10", "24", "240", "8", "8","8"},
 				{"M00002", "P002", "黄色", "1000", "2月6日", "还原工段", "2000", "2",
-							"1#", "10", "24", "240", "24", "",""},
+							"1#", "10", "24", "240", "8", "8","8"},
 				{"M00002", "P002", "黄色", "1000", "2月6日", "还原工段", "2000", "2",
-								"1#", "10", "24", "240", "24", "","" },
+								"1#", "10", "24", "240", "8", "8","8" },
 				{"M00003", "P003", "蓝色", "1000", "2月6日", "还原工段", "3000", "3",
-						"1#", "10", "24", "240", "24", "" ,""},
+						"1#", "10", "24", "240", "8", "8","8"},
 				{"M00003", "P003", "蓝色", "1000", "2月6日", "还原工段", "3000", "3",
-							"1#", "10", "24", "240", "24", "","" },
+							"1#", "10", "24", "240", "8", "8","8" },
 				{"M00003", "P003", "蓝色", "1000", "2月6日", "还原工段", "3000", "3",
-								"1#", "10", "24", "240", "24", "" } };
+								"1#", "10", "24", "240", "8", "8","8" } };
 		String[] columnNames = { "生产订单", "产品", "规格", "计划数量", "完工日期", "工段",
 				"已排程数量", "未排程数量", "可用机台", "产品生产能力", "排程时间", "排程数量", "2月4号",
 				"2月5号" };
 		
 		String[] columnNames2 = { "生产订单", "产品", "规格", "计划数量", "完工日期", "工段",
-				"已排程数量", "未排程数量", "可用机台", "产品生产能力", "排程时间", "排程数量","拆分表头","拆分表头","拆分表头"};
+				"已排程数量", "未排程数量", "可用机台", "产品生产能力", "排程时间", "排程数量","6月5号","6月6号","6月7号"};
+		String[] columnNames22 = {"","","","","","","","","","","","","","",""};
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JTable table = new JTable(cellData, columnNames);
 		panel.add(new JScrollPane(table));
 
 
-		JTable table2 = this.getTable(cellData,columnNames2);                  //下表
+		JTable table2 = this.getTable(cellData,columnNames22);                  //下表
 		
 		table2.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         GroupableTableHeader tableHeader = new GroupableTableHeader();
         table2.setTableHeader(tableHeader);
         
         
-        for(int i = 0 ;i < 15 ; i++){
+        for(int i = 0 ;i < 12 ; i++){
         	DefaultGroup group = new DefaultGroup();
             group.setRow(0);
             group.setRowSpan(2);      //设定占用两行
             group.setColumn(i);
-            group.setHeaderValue("生产订单");
+            group.setHeaderValue(columnNames2[i]);
             tableHeader.addGroup(group);
         }
+      
+        	DefaultGroup group = new DefaultGroup();
+            group.setRow(0);
+            group.setColumn(12);
+            group.setColumnSpan(3);
+            group.setHeaderValue(columnNames2[12]);
+            tableHeader.addGroup(group);
+            
+            group = new DefaultGroup();
+            group.setRow(1);
+            group.setColumn(12);
+            group.setHeaderValue("早");
+            tableHeader.addGroup(group);
+
+            group = new DefaultGroup();
+            group.setRow(1);
+            group.setColumn(13);
+            group.setHeaderValue("中");
+            tableHeader.addGroup(group);
+            
+            group = new DefaultGroup();
+            group.setRow(1);
+            group.setColumn(14);
+            group.setHeaderValue("晚");
+            tableHeader.addGroup(group);
         
-        initHeader(table2);
+       
+        
+//        initHeader(table2);
         
         
 		panel2.setLayout(new BorderLayout(0, 0));
 		panel2.add(new JScrollPane(table2), BorderLayout.CENTER);
-//		table2.getTableHeader().setPreferredSize(new Dimension(1,65)); //设定表头高度
+		table2.getTableHeader().setPreferredSize(new Dimension(1,42)); //设定表头高度
 
         
 	}
@@ -134,11 +162,11 @@ public class TableTest {
 		return cTable;
 	}
 	private void initHeader(JTable table){
-		TableColumn firsetColumn = table.getColumnModel().getColumn(0);
-		firsetColumn.setPreferredWidth(30);
-		firsetColumn.setMaxWidth(120);
-		firsetColumn.setMinWidth(120);
-		table.setRowHeight(20);
+//		TableColumn firsetColumn = table.getColumnModel().getColumn(0);
+////		firsetColumn.setPreferredWidth(30);
+////		firsetColumn.setMaxWidth(120);
+////		firsetColumn.setMinWidth(120);
+////		table.setRowHeight(20);
     }
 
 }
