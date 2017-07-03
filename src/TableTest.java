@@ -61,7 +61,7 @@ public class TableTest {
 		panel2.setLayout(new GridLayout(1,2,0,0));
 		
 		
-		JPanel panel3 = new JPanel();    //下左
+		JPanel panel3 = new Table();    //下左
 		panel2.add(panel3);
 		JPanel panel4 = new BarChartGradientFrame("demo").createDemoPanel();    //下右用来存放条形图
 		panel4.setPreferredSize(new Dimension(100,100));
